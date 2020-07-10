@@ -11309,10 +11309,8 @@ var InjectionService = /** @class */ (function () {
      * @memberOf InjectionService
      */
     InjectionService.prototype.getComponentRootNode = function (componentRef) {
-        // the top most component root node has no `hostView`
-        if (!componentRef.hostView)
-            return componentRef.element.nativeElement;
-        return componentRef.hostView.rootNodes[0];
+        // fix for tooltips
+        return componentRef.location.nativeElement;
     };
     /**
      * Gets the root component container html element.
