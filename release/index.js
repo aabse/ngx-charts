@@ -16559,11 +16559,11 @@ var PieChartComponent = /** @class */ (function (_super) {
         var _this = this;
         _super.prototype.update.call(this);
         if (this.labels && this.hasNoOptionalMarginsSet()) {
-            this.margins = [30, 80, 30, 80];
+            this.margins = [0, 0, 0, 0];
         }
         else if (!this.labels && this.hasNoOptionalMarginsSet()) {
             // default value for margins
-            this.margins = [20, 20, 20, 20];
+            this.margins = [0, 0, 0, 0];
         }
         this.dims = Object(__WEBPACK_IMPORTED_MODULE_1__common_view_dimensions_helper__["a" /* calculateViewDimensions */])({
             width: this.width,
@@ -17221,7 +17221,7 @@ var PieLabelComponent = /** @class */ (function () {
             scale = 1;
         }
         var outerPos = [scale * innerPos[0], scale * innerPos[1]];
-        this.line = "M" + innerPos + "L" + outerPos + "L" + this.data.pos;
+        this.line = "M" + innerPos + "L" + this.data.pos;
     };
     Object.defineProperty(PieLabelComponent.prototype, "textX", {
         get: function () {
@@ -17376,19 +17376,17 @@ var PieSeriesComponent = /** @class */ (function () {
         return d.startAngle + (d.endAngle - d.startAngle) / 2;
     };
     PieSeriesComponent.prototype.outerArc = function () {
-        var factor = 1.5;
+        var factor = 1.2;
         return Object(__WEBPACK_IMPORTED_MODULE_2_d3_shape__["arc"])()
             .innerRadius(this.outerRadius * factor)
             .outerRadius(this.outerRadius * factor);
     };
     PieSeriesComponent.prototype.calculateLabelPositions = function (pieData) {
         var _this = this;
-        var factor = 1.5;
         var minDistance = 10;
         var labelPositions = pieData;
         labelPositions.forEach(function (d) {
             d.pos = _this.outerArc().centroid(d);
-            d.pos[0] = factor * _this.outerRadius * (_this.midAngle(d) < Math.PI ? 1 : -1);
         });
         for (var i = 0; i < labelPositions.length - 1; i++) {
             var a = labelPositions[i];

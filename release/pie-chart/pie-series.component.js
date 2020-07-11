@@ -43,19 +43,17 @@ var PieSeriesComponent = /** @class */ (function () {
         return d.startAngle + (d.endAngle - d.startAngle) / 2;
     };
     PieSeriesComponent.prototype.outerArc = function () {
-        var factor = 1.5;
+        var factor = 1.2;
         return arc()
             .innerRadius(this.outerRadius * factor)
             .outerRadius(this.outerRadius * factor);
     };
     PieSeriesComponent.prototype.calculateLabelPositions = function (pieData) {
         var _this = this;
-        var factor = 1.5;
         var minDistance = 10;
         var labelPositions = pieData;
         labelPositions.forEach(function (d) {
             d.pos = _this.outerArc().centroid(d);
-            d.pos[0] = factor * _this.outerRadius * (_this.midAngle(d) < Math.PI ? 1 : -1);
         });
         for (var i = 0; i < labelPositions.length - 1; i++) {
             var a = labelPositions[i];

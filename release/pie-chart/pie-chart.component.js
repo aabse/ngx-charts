@@ -49,11 +49,11 @@ var PieChartComponent = /** @class */ (function (_super) {
         var _this = this;
         _super.prototype.update.call(this);
         if (this.labels && this.hasNoOptionalMarginsSet()) {
-            this.margins = [30, 80, 30, 80];
+            this.margins = [0, 0, 0, 0];
         }
         else if (!this.labels && this.hasNoOptionalMarginsSet()) {
             // default value for margins
-            this.margins = [20, 20, 20, 20];
+            this.margins = [0, 0, 0, 0];
         }
         this.dims = calculateViewDimensions({
             width: this.width,

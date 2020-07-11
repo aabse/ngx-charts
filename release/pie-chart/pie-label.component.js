@@ -36,7 +36,7 @@ var PieLabelComponent = /** @class */ (function () {
             scale = 1;
         }
         var outerPos = [scale * innerPos[0], scale * innerPos[1]];
-        this.line = "M" + innerPos + "L" + outerPos + "L" + this.data.pos;
+        this.line = "M" + innerPos + "L" + this.data.pos;
     };
     Object.defineProperty(PieLabelComponent.prototype, "textX", {
         get: function () {
