@@ -79,7 +79,7 @@ var PieSeriesComponent = /** @class */ (function () {
         return labelPositions;
     };
     PieSeriesComponent.prototype.labelVisible = function (myArc) {
-        return this.showLabels && myArc.endAngle - myArc.startAngle > Math.PI / 30;
+        return this.showLabels && myArc.endAngle - myArc.startAngle > Math.PI / 500;
     };
     PieSeriesComponent.prototype.getTooltipTitle = function (a) {
         return this.tooltipTemplate ? undefined : this.tooltipText(a);
